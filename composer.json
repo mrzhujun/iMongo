@@ -1,0 +1,8 @@
+{
+  "name": "zjun/iMongo",
+  "description": "mongodb封装成类似model的操作",
+  "require": {
+    "php": ">=7.0",
+    "ext-mongodb": "*"
+  }
+}
