@@ -1,5 +1,5 @@
 {
-  "name": "zjun/iMongo",
+  "name": "zjun/i-mongo",
   "description": "mongodb封装成类似model的操作",
   "require": {
     "php": ">=7.0",
