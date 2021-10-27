@@ -16,7 +16,7 @@ use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 use MongoDB\Driver\WriteConcern;
 
-abstract class Model
+abstract class MongoModel
 {
     /**
      * 数据库配置信息

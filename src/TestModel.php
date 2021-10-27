@@ -9,7 +9,7 @@
 namespace IMongo;
 
 
-class TestModel extends Model
+class TestModel extends MongoModel
 {
     protected $db = 'test';
     protected $table = 'pick_me';

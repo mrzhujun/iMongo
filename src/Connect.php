@@ -17,11 +17,8 @@ class Connect
 
     private $mongo;
 
-    private function __construct($config) {
-        if (!$config) {
-            throw new \Exception('不能链接芒果数据库');
-        }
-        $this->mongo = (new Manager('mongodb://' . $config['userName'] . ':' . $config['password'] . '@' . $config['host'] . ':' . $config['port']));
+    private function __construct(ConfigStruct $config) {
+        $this->mongo = (new Manager($this->getUrl($config)));
     }
 
     public static function cli($config): Manager
@@ -30,5 +27,14 @@ class Connect
             self::$client = new self($config);
         }
         return self::$client->mongo;
+    }
+    
+    private function getUrl(ConfigStruct $config):string {
+        $url = 'mongodb://';
+        if ($config->userName) {
+            $url .= $config->userName . ':' . $config->password.'@';
+        }
+        $url .= $config->host . ':' . $config->port;
+        return $url;
     }
 }
