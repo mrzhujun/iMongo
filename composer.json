@@ -1,6 +1,7 @@
 {
   "name": "zjun/i-mongo",
   "description": "mongodb封装成类似model的操作",
+  "license": "MIT",
   "keywords": ["mongodb"],
   "require": {
     "php": ">=7.0",
