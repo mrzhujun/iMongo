@@ -11,7 +11,7 @@ namespace IMongo;
 
 class TestModel extends Model
 {
-    protected $db = '3yakj';
+    protected $db = 'test';
     protected $table = 'pick_me';
 
 }
