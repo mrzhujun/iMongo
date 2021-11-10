@@ -47,6 +47,7 @@ abstract class MongoModel
      */
     protected $name;
     private $dbStr;
+    private $_id;
 
     public function __construct($config){
         if (empty($this->name)) {
@@ -67,6 +68,32 @@ abstract class MongoModel
     {
         return $this->name;
     }
+
+    /**
+     * 获取最后一次更新的主键
+     * @return mixed
+     */
+    public function getLastId() {
+        return ((array)$this->_id)['oid'];
+    }
+
+    /**
+     * 获取最后一次插入的数据
+     * @return mixed
+     */
+    public function getLastData(): ?array
+    {
+        if (!$this->_id) {
+            return null;
+        }else{
+            try {
+                return $this->getByWhere(['_id' => ['$eq' => $this->_id]]);
+            } catch (Exception $e) {
+                return null;
+            }
+        }
+    }
+
 
     /**
      * 多条数据写入
@@ -96,8 +123,7 @@ abstract class MongoModel
     public function insert(array $data): ?int
     {
         $bulk = new BulkWrite();
-        $bulk->insert($data);
-
+        $this->_id = $bulk->insert($data);
         //返回数据处理结果
         return $this->connection->executeBulkWrite(
             $this->dbStr,
