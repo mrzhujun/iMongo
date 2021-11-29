@@ -21,7 +21,7 @@ class Connect
         $this->mongo = (new Manager($this->getUrl($config)));
     }
 
-    public static function cli($config): Manager
+    public static function cli(ConfigStruct $config): Manager
     {
         if(!(self::$client instanceof self)){
             self::$client = new self($config);

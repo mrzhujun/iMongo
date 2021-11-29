@@ -49,7 +49,7 @@ abstract class MongoModel
     private $dbStr;
     private $_id;
 
-    public function __construct($config){
+    public function __construct(ConfigStruct $config){
         if (empty($this->name)) {
             // 当前模型名
             $name       = str_replace('\\', '/', static::class);
