@@ -6,7 +6,7 @@
  * Email: mr.zhujun1314@gmail.com
  */
 
-$model = new \IMongo\TestModel(new \IMongo\ConfigStruct('192.168.4.206',27017));
+$model = new \IMongo\TestModel();
 
 $model->deleteByWhere(['a'=>['$eq'=>'1']]);
 $model->insert(['a'=>'1','b'=>'2']);

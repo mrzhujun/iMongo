@@ -4,7 +4,9 @@
   "license": "MIT",
   "keywords": ["mongodb"],
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.1",
+    "mongodb/mongodb": "^1.10",
+    "ext-mongodb": "^1.11.0"
   },
   "autoload": {
     "psr-4": { "IMongo\\": "src/" }
