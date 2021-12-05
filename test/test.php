@@ -8,8 +8,8 @@
 
 $model = new \IMongo\TestModel();
 
-$model->deleteByWhere(['a'=>['$eq'=>'1']]);
-$model->insert(['a'=>'1','b'=>'2']);
-$model->insertAll([['a'=>'1','b'=>'2'],['a'=>'3','b'=>'4']]);
+$model->deleteOne(['a'=>['$eq'=>'1']]);
+$model->insertOne(['a'=>'1','b'=>'2']);
+$model->insertMany([['a'=>'1','b'=>'2'],['a'=>'3','b'=>'4']]);
 
-$data = $model->getByWhere(['a'=>['$eq','1']]);
+$data = $model->find(['a'=>['$eq','1']]);
