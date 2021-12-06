@@ -29,17 +29,11 @@ abstract class MongoModel extends Collection
      */
     protected $table;
 
-    /**
-     * 模型名称
-     * @var string
-     */
-    protected $name;
-
     public function __construct(ConfigStruct $config){
-        if (empty($this->name)) {
+        if (empty($this->table)) {
             // 当前模型名
             $name       = str_replace('\\', '/', static::class);
-            $this->name = basename($name);
+            $this->table = basename($name);
         }
         parent::__construct(Connect::cli($config),$this->db,$this->table);
     }
